@@ -22,7 +22,8 @@
  */
 
 export const removeFalseValues = (booleanArr) => {
-  return;
+  const onlyTrue = booleanArr.filter((boolean) => boolean === true )
+  return onlyTrue
 };
 
 /**
@@ -34,7 +35,9 @@ export const removeFalseValues = (booleanArr) => {
  */
 
 export const createPercentageList = (numbersArr) => {
-  return;
+ const newArr = [...numbersArr]
+ const percentageArr = newArr.map((x => x * 100 + "%"))
+ return percentageArr;
 };
 
 /**
@@ -47,7 +50,9 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPoessessions = (possessionsArr, name) => {
-  return;
+  const newPossessionArr = [...possessionsArr]
+  let testy = newPossessionArr.map((possession) => `${name} ${possession}`)
+  return testy;
 };
 
 /**
@@ -71,8 +76,12 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  * @return {number[]} [1, 2, 3, 4, 5]
  */
 
+
+
 export const convertStringToNumbersArray = (numberString) => {
-  return;
+  const removePlus = numberString.split("+").map(Number);
+  return removePlus
+  
 };
 
 /**
@@ -83,8 +92,19 @@ export const convertStringToNumbersArray = (numberString) => {
  * @return {string[]} ['odd', 'even', 'odd', 'even', 'odd']
  */
 
+// STUMPED ON THIS ONE! Seems to be returning seperate arrays. 
 export const createOddEvenArray = (numberString) => {
-  return;
+  const removePlus3 = numberString.split("+").map((number => number % 2 === 0 ? "even" : "odd"))
+  return removePlus3
+  // STUMPED ON THIS ONE! Seems to be returning seperate arrays. Below was my first attempt: 
+  // const removePlus2 = numberString2.split("+").map(Number)
+  // removePlus2.forEach(i => {
+  //     if (removePlus2[i] % 2 == 0) {
+  //         console.log(["odd"])
+  //     } else {
+  //       console.log(["even"])
+  //     }
+  // });
 };
 
 /**
@@ -97,7 +117,11 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-  return;
+  let newBooksArr = [...booksArr]
+  newBooksArr = newBooksArr.filter((book) => book.includes(searchTerm)) 
+  return newBooksArr
+  
+
 };
 
 /**

@@ -19,8 +19,10 @@ const firstName = "John";
 const lastName = "Smith";
 
 export const createFullName = () => {
-  // Write your code here
-};
+  const fullName = firstName + " " + lastName;
+
+  return fullName;
+}
 
 /**
  * A function that programmatically returns the largest number.
@@ -33,6 +35,11 @@ const largeNumber2 = 200;
 
 export const findLargestNumber = () => {
   // Write your code here
+  if (largeNumber1 > largeNumber2) {
+    return largeNumber1
+  } else {
+    return largeNumber2
+  }
 };
 
 /**
@@ -46,6 +53,8 @@ const addNumber2 = 24;
 
 export const addNumbers = () => {
   // Write your code here
+  const addNumbers = addNumber1 + addNumber2
+  return addNumbers
 };
 
 /* Intermediate Challenges */
@@ -59,7 +68,9 @@ export const addNumbers = () => {
 const password = "thisIsMyVeryLongPassword123456789";
 
 export const findLengthOfPassword = () => {
-  // Write your code here
+  // .length works out the ammount of characters in the string. 
+  const lengthOfString = password.length
+  return lengthOfString
 };
 
 /**
@@ -76,7 +87,17 @@ const thing = "I am a thing";
 
 export const findType = () => {
   // Write your code here
-};
+  const variableType = typeof thing 
+  if (variableType === "number") {
+    return "This is a number"
+  } else if (variableType === "string") {
+    return "This is a string"
+  } else if (variableType === "boolean") {
+    return "This is a boolean"
+  } else {
+    return "This is underfined"
+  }
+}
 
 /**
  * A function to programmatically decide if a name is suitable for a name tag.
@@ -89,6 +110,15 @@ const nameTagOption = "Timothy";
 
 export const getIsValidOnNameTag = () => {
   // Write your code here
+
+  const checkNameTag = nameTagOption
+
+  if (checkNameTag.length <= 8 && checkNameTag[0] === checkNameTag[0].toUpperCase()) {
+    return true
+  } else {
+    return false
+  }
+
 };
 
 /* Advanced Challenges */
@@ -103,6 +133,12 @@ const stringToConvert = "14.45";
 
 export const convertStringToNumber = () => {
   // Write your code here
+  // The parseFloat() method converts a string into a point number (a number with decimal points). You can even pass in strings with random text in them.
+
+  const convertStringToNum = parseFloat(stringToConvert)
+
+  return convertStringToNum
+
 };
 
 /**
@@ -117,7 +153,13 @@ const stringWithUppercaseLetters = "I Am A String With Uppercase Letters";
 
 export const getHasUppercaseLetters = () => {
   // Write your code here
-};
+  const regex = /([A-Z])/g;
+  const hasUpperCaseLetters = regex.test(stringWithUppercaseLetters);
+
+  return hasUpperCaseLetters;
+
+  };
+
 
 /* Expert Challenge */
 
@@ -131,4 +173,9 @@ const pascalCaseVariableName = "IWantToBeSnakeCase";
 
 export const convertPascalCaseToSnakeCase = () => {
   // Write your code here
+  // .split uses regex to seperate the string. 
+  // .join will then rejing the string together with the added (' ') space between the letters. 
+  // .toLowerCase will place all the characters in lower case. 
+  let snakeConvert = pascalCaseVariableName.split(/(?=[A-Z])/).join('_').toLowerCase();
+  return snakeConvert
 };

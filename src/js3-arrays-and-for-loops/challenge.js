@@ -22,7 +22,20 @@
  */
 
 export const createRecipeString = (ingredientsArr) => {
-  return;
+ 
+  // this feels like an old out of date way of doing thins. Can use this: return ingredientsArr.join("+")
+  
+  let recipeString = "" 
+
+  for (let index = 0; index < ingredientsArr.length; index++) {
+    
+      if (index === ingredientsArr.length - 1) {
+        recipeString += ingredientsArr[index]
+      } else { 
+        recipeString += ingredientsArr[index] + "+";
+    }
+  }
+  return recipeString
 };
 
 /**
@@ -33,7 +46,17 @@ export const createRecipeString = (ingredientsArr) => {
  */
 
 export const getFirstAndLastItems = (itemsArr) => {
-  return;
+  
+ 
+  // not sure if this is good practise. Works though. 
+  let firstAndLastName = [`${itemsArr[0]}`, `${itemsArr[itemsArr.length - 1]}`]
+  return firstAndLastName
+
+   // let firstName = itemsArr[0]
+  // let lastName = itemsArr[itemsArr.length - 1]
+
+  // return [firstName, lastName]
+
 };
 
 /**
@@ -44,7 +67,13 @@ export const getFirstAndLastItems = (itemsArr) => {
  */
 
 export const totalScores = (scoreArr) => {
-  return;
+  let totalScore = 0
+
+  for (let i = 0; i < scoreArr.length; i++) {
+    totalScore += scoreArr[i]   
+  }
+  
+  return totalScore;
 };
 
 /**
@@ -60,7 +89,13 @@ export const totalScores = (scoreArr) => {
  */
 
 export const totalRange = (rangeMax) => {
-  return;
+  let range = 0
+  for (let i = 0; i <= rangeMax; i++) {
+    //   this will add the numbers together 
+    range += i
+  }
+  
+  return range
 };
 
 /**
@@ -71,7 +106,12 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  return;
+  const arrayCopy = [...itemsArr]
+  const removedLast = arrayCopy.pop()
+  arrayCopy.unshift(removedLast)
+  // addFirst = itemsArr.unshift(removedLast) This was the wrong way to write it. 
+  
+  return arrayCopy
 };
 
 /**
@@ -89,7 +129,12 @@ export const moveFirstAndLastItems = (itemsArr) => {
  */
 
 export const removeEvenNumbers = (numberArr) => {
-  return;
+  
+  const cloneNumbersArr = [...numberArr]
+
+  const filterOddNumbers = cloneNumbersArr.filter(n => n%2)
+
+  return filterOddNumbers;
 };
 
 /**

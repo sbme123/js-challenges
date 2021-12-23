@@ -18,7 +18,10 @@
  */
 export const createFullName = (firstName, lastName) => {
   /* Write your code here */
+  return `${firstName} ${lastName}`
 };
+
+
 
 /**
  * A function that takes two numbers as an input and returns the smallest one.
@@ -28,8 +31,15 @@ export const createFullName = (firstName, lastName) => {
  * @param {number} number2 200
  * @returns {number} 100
  */
-export const findSmallestNumber = (/* Write the parameters here */) => {
+export const findSmallestNumber = (number1, number2) => {
   /* Write your code here */
+  // also used Math.min as follows: return Math.min(number1, number2)
+  
+  if (number1 < number2) {
+    return number1
+  } else {
+    return number2
+  }
 };
 
 /**
@@ -40,8 +50,9 @@ export const findSmallestNumber = (/* Write the parameters here */) => {
  * @param {number} number2 6
  * @returns {number} 18
  */
-export const multiplyNumbers = (/* Write the parameters here */) => {
+export const multiplyNumbers = (number1, number2) => {
   /* Write your code here */
+  return number1 * number2
 };
 
 /* Intermediate Challenges */
@@ -58,6 +69,13 @@ export const multiplyNumbers = (/* Write the parameters here */) => {
  */
 export const checkIfNewHighScore = (score, highScore) => {
   /* Write your code here */
+  if (score > highScore) {
+    return `You got a new high score!`
+  } else if (score == highScore) {
+    return "So close!"
+  } else {
+    return "Better luck next time!"
+  }
 };
 
 /**
@@ -68,6 +86,8 @@ export const checkIfNewHighScore = (score, highScore) => {
  */
 export const celsiusToFahrenheit = (tempInCelsius) => {
   /* Write your code here */
+  const fahrenheit = tempInCelsius * 9/5 + 32
+  return `${tempInCelsius} degrees celsius is ${fahrenheit} degrees fahrenheit`
 };
 
 /**
@@ -81,6 +101,9 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
  */
 export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
   /* Write your code here */
+  const yearsRemaining = maxAge - age 
+  const supplyneeded = yearsRemaining * 365 * snickersPerDay
+  return supplyneeded
 };
 
 /* Advanced Challenges */
@@ -101,7 +124,52 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  */
 export const getGrade = (score) => {
   /* Write your code here */
+
+  if (score < 0 || score > 100 || typeof score !== "number") {
+    return "Score unavailable";
+  }
+
+  if (score >= 80) {
+    return "A";
+  } else if (score >= 70) {
+    return "B";
+  } else if (score >= 60) {
+    return "C";
+  } else if (score >= 50) {
+    return "D";
+  } else if (score >= 40) {
+    return "E";
+  } else {
+    return "F";
+  }
 };
+// Did initially write this switch statement but could not get it to work. 
+//   let grade
+//   switch (score) {
+//       case score >= 80:
+//       grade = "A";
+//       break;
+//       case score >= 70 && score > 79:
+//       grade = "B";
+//       break;
+//       case score >= 60 && score < 69:
+//       grade = "C";
+//       break;
+//       case score >= 50 && score < 59:
+//       grade = "D";
+//       break;
+//       case score >= 40 && score < 49:
+//       grade = "E";
+//       break;
+//       case score >= 0 && score < 39:
+//       grade = "F";
+//       break;
+  
+//     default: "Score unavailable"
+//       break;
+//   }
+
+// };
 
 /**
  * A function that find the area of a circle to 2 decimal places.
@@ -111,6 +179,10 @@ export const getGrade = (score) => {
  */
 export const calculateAreaOfCircle = (radius) => {
   /* Write your code here */
+  let areaOfCirlce = Math.PI * (radius ** 2)
+  let areaTwoDecimalPlace = areaOfCirlce.toFixed(2) 
+  
+  return parseFloat(areaTwoDecimalPlace)
 };
 
 /* Expert Challenge */
@@ -132,4 +204,45 @@ export const calculateAreaOfCircle = (radius) => {
  */
 export const getStudentSummary = (score, name) => {
   /* Write your code here */
+  
+  const calculateGradeScore = (score) => {
+    /* Write your code here */
+  
+    if (score < 0 || score > 100 || typeof score !== "number") {
+      return "Score unavailable";
+    }
+  
+    if (score >= 80) {
+      return "A";
+    } else if (score >= 70) {
+      return "B";
+    } else if (score >= 60) {
+      return "C";
+    } else if (score >= 50) {
+      return "D";
+    } else if (score >= 40) {
+      return "E";
+    } else {
+      return "F";
+    }
+  };
+
+  const letterGrade = calculateGradeScore(score);
+
+  switch (letterGrade) {
+    case "A":
+      return `Congratulations ${name}! You achieved a grade of ${letterGrade}.`;
+    case "B":
+      return `Well done ${name}! You achieved a grade of ${letterGrade}.`;
+    case "C":
+      return `Nicely done ${name}! You achieved a grade of ${letterGrade}.`;
+    case "D":
+      return `That's okay ${name}. You achieved a grade of ${letterGrade}.`;
+    case "E":
+      return `Too bad ${name}. You achieved a grade of ${letterGrade}.`;
+    case "F":
+      return `Sorry ${name}. You achieved a grade of ${letterGrade}. There's always next year.`;
+    default:
+      return `My apologies ${name}, there's been an error in processing your grade.`;
+  }
 };
