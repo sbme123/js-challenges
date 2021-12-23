@@ -21,8 +21,11 @@
  * @return {number} 30
  */
 
-export const totalScoresArr = (scoresArr) => {
-  return;
+export const totalScoresArr = (numberArr) => {
+  const totalScores = numberArr.reduce((accumulator, currentValue) => { 
+    return accumulator + currentValue
+   }, 0);  
+   return totalScores 
 };
 
 /**
@@ -35,7 +38,14 @@ export const totalScoresArr = (scoresArr) => {
  */
 
 export const reverseString = (toReverse) => {
-  return;
+   // new array with the chars splt. 
+   const stringArray = toReverse1.split("");
+   // reversing order of the chars 
+   const stringReversed = stringArray.reverse();
+   // putting the chars back to a new single array
+   const stringJoined = stringReversed.join("");
+   
+  return stringJoined
 };
 
 /**
