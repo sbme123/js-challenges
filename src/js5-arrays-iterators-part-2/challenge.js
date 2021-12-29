@@ -21,7 +21,7 @@
  * @return {number} 30
  */
 
-export const totalScoresArr = (numberArr) => {
+ export const totalScoresArr = (numberArr) => {
   const totalScores = numberArr.reduce((accumulator, currentValue) => { 
     return accumulator + currentValue
    }, 0);  
@@ -39,7 +39,7 @@ export const totalScoresArr = (numberArr) => {
 
 export const reverseString = (toReverse) => {
    // new array with the chars splt. 
-   const stringArray = toReverse1.split("");
+   const stringArray = toReverse.split("");
    // reversing order of the chars 
    const stringReversed = stringArray.reverse();
    // putting the chars back to a new single array
@@ -58,7 +58,11 @@ export const reverseString = (toReverse) => {
  */
 
 export const sortCharactersAlphabetically = (charcterArr) => {
-  return;
+  const newCharacterArr = [...charcterArr]
+  let newCharacterArrAToZLowerCase = newCharacterArr.map((chars) => chars.toLowerCase());
+  const aToZ = newCharacterArrAToZLowerCase.sort()
+  return aToZ
+ 
 };
 
 /**
@@ -73,7 +77,10 @@ export const sortCharactersAlphabetically = (charcterArr) => {
  */
 
 export const sortNumbersHighToLow = (numberArr) => {
-  return;
+  const numnbersInOrder = numberArr.sort((a, b) => {return a-b})
+  const numbersHighToLow = numnbersInOrder.reverse('numberArr:', numberArr) 
+  return numbersHighToLow;
+  
 };
 
 /**
@@ -104,7 +111,14 @@ export const checkItemInstock = (toCheck) => {
     "blueberry",
     "melon",
   ];
-  return;
+  
+  const index = stockList.indexOf(toCheck)
+    
+  if (index >= 0) {
+  return `${toCheck} is instock, it is on aisle ${index}.`
+    } else {
+    return `Sorry ${toCheck} is not instock.`
+    }
 };
 
 /**
@@ -118,7 +132,9 @@ export const checkItemInstock = (toCheck) => {
  */
 
 export const checkPrimaryColours = (coloursArr) => {
-  return;
+  const primaryColours = ["red", "blue", "yellow"];
+  const checkPrimaryColour = coloursArr.every((colour) => primaryColours.includes(colour));
+  return checkPrimaryColour;
 };
 
 /**

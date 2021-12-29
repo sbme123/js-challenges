@@ -53,7 +53,7 @@ describe("Testing reverseString()", () => {
 
 });
 
-xdescribe("Testing sortCharactersAlphabetically()", () => {
+describe("Testing sortCharactersAlphabetically()", () => {
   const lowerCaseCharArr = "dloejmixwrsnfacqyukvhtgzpb".split("");
   const upperCaseCharArr = "DLOEJMIXWRSNFACQYUKVHTGZPB".split("");
   const sortedCharArr = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -94,7 +94,7 @@ xdescribe("Testing sortCharactersAlphabetically()", () => {
 
 });
 
-xdescribe("Testing sortNumbersHighToLow()", () => {
+describe("Testing sortNumbersHighToLow()", () => {
   const lowToHigh = Array(50)
     .fill(1)
     .map((number, index) => (number += index));
@@ -133,7 +133,7 @@ xdescribe("Testing sortNumbersHighToLow()", () => {
 
 });
 
-xdescribe("Testing checkItemInstock()", () => {
+describe("Testing checkItemInstock()", () => {
   const stockList = [
     "apple",
     "banana",
