@@ -22,6 +22,9 @@
  */
 export const getFurniturePrice = (furniture) => {
   /* Write code here */
+  const price = furniture.price
+
+  return price;
 };
 
 /**
@@ -33,6 +36,8 @@ export const getFurniturePrice = (furniture) => {
  */
 export const setFurnitureStoreLocation = (furniture, location) => {
   /* Write code here */
+  furniture.location = location
+  return furniture
 };
 
 /**
@@ -47,6 +52,8 @@ export const setFurnitureStoreLocation = (furniture, location) => {
  */
 export const makeSpaceship = (name, noOfSeats, engineType, canTravelSolarSystems) => {
   /* Write code here */
+  const spaceShip = {name, noOfSeats, engineType, canTravelSolarSystems} 
+  return spaceShip
 };
 
 /* Intermediate Challenges */
@@ -60,8 +67,22 @@ export const makeSpaceship = (name, noOfSeats, engineType, canTravelSolarSystems
  */
 export const setUserName = (user, username) => {
   /* Write code here */
-};
 
+  const hasUserName = user.hasOwnProperty("username");
+
+  if (!hasUserName) {
+    user.username = username;
+  }
+
+  return user;
+
+  // First attempt not working. 
+  // if (user.username = undefined) {
+  //   return 
+  // } else {
+  //   user.username = username
+  // }
+}
 /**
  * A function which takes a customer object from the database and returns the same object where the name has been
  * split into first and last name and reattached to the object
@@ -71,6 +92,17 @@ export const setUserName = (user, username) => {
  */
 export const splitFullNameToFirstAndLast = (customer) => {
   /* Write code here */
+
+  const fullName = customer.fullName;
+  const splitNames = fullName.split(" ");
+  const firstName = splitNames[0];
+  const lastName = splitNames[1];
+
+  customer.firstName = firstName;
+  customer.lastName = lastName;
+
+  return customer;
+
 };
 
 /**
@@ -84,6 +116,8 @@ export const splitFullNameToFirstAndLast = (customer) => {
  */
 export const accessGivenKey = (object, key) => {
   /* Write code here */
+  const test = object[key]
+  return test
 };
 
 /* Advanced Challenges */
